@@ -2,6 +2,7 @@ extends VehicleBody3D
 
 var cam_first_person
 var cam_3rd_person
+var cam_rearview
 var door_right : MeshInstance3D
 var door_left : MeshInstance3D
 var steering_wheel : MeshInstance3D
@@ -14,6 +15,7 @@ var rpm_angle
 var door_positions_left : Array
 var door_positions_right : Array
 var door_position_indexes : Array
+var mirror:Mirror3D
 const MAX_STEER =  0.3
 const ENGINE_POWER = 200
 const BRAKE_POWER = 5.0
@@ -21,11 +23,13 @@ const BRAKE_POWER = 5.0
 func _ready():
 	cam_first_person = get_node("CameraFirstPerson")
 	cam_3rd_person = get_node("Camera3rdPerson")
+	cam_rearview = get_node("CameraRearview")
 	door_right = get_node("Door Right")
 	door_left = get_node("Door Left")
 	steering_wheel = get_node("Steering Wheel")
 	spedometer = get_node("Spedometer Needle")
 	rpm_meter = get_node("RPM Needle")
+	mirror = get_node("Mirror3D")
 	rpm_zero_basis = rpm_meter.basis
 	rpm_angle = 0
 	steering_wheel_zero_basis = steering_wheel.basis
@@ -48,7 +52,16 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 		
 	if Input.is_action_just_pressed("action_change_view"):
-		cam_first_person.current = !cam_first_person.current
+		if cam_first_person.current:
+			cam_3rd_person.current = true
+		else:
+			cam_first_person.current = true
+			
+	if Input.is_action_just_pressed("action_rearview"):
+		if cam_rearview.current:
+			cam_first_person.current = true
+		else:
+			cam_rearview.current = true
 		
 	if Input.is_action_just_pressed("action_open_doors"):
 		for i in 2:
