@@ -2,8 +2,8 @@
 
 [ext_resource type="MeshLibrary" uid="uid://caup35a3kd83d" path="res://road_tiles.tres" id="1_a02cp"]
 [ext_resource type="MeshLibrary" uid="uid://d0ybk4w8qjkc3" path="res://city_tiles.tres" id="2_go701"]
-[ext_resource type="PackedScene" uid="uid://cjg530xhkehm8" path="res://Scenes/player_vehicle_wagon.tscn" id="3_5a7ea"]
 [ext_resource type="Texture2D" uid="uid://dkunxunkhiw5h" path="res://Assets/Textures/clover.jpg" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://borupx16dtei6" path="res://Scenes/player_station_wagon.tscn" id="4_fo5ed"]
 
 [sub_resource type="Environment" id="Environment_yp4wr"]
 
@@ -28,27 +28,27 @@ compositor = SubResource("Compositor_go701")
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 40.6, 0)
 
 [node name="GridMap_Roads" type="GridMap" parent="."]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 mesh_library = ExtResource("1_a02cp")
-cell_size = Vector3(8, 0.25, 8)
-cell_scale = 8.0
+cell_size = Vector3(1, 0.25, 1)
 data = {
 "cells": PackedInt32Array(3, 0, 64, 5, 0, 64, 7, 0, 64, 9, 0, 64, 1, 0, 64, 65535, 0, 64, 65533, 0, 64, 65531, 0, 64, 65532, 0, 64, 65534, 0, 64, 0, 0, 64, 2, 0, 64, 6, 0, 64, 4, 0, 64, 8, 0, 64, 10, 0, 20, 10, 1, 1441856, 10, 2, 1441856, 10, 3, 1441856, 10, 4, 1441856, 10, 5, 1441856, 10, 6, 1441856, 10, 65535, 1441856, 10, 65534, 1441856, 10, 65533, 1441856, 10, 65532, 1441856, 10, 65531, 1441856, 11, 0, 655424, 12, 0, 655424, 13, 0, 655424, 14, 0, 655424, 15, 0, 655424, 16, 0, 655424, 17, 0, 655424, 18, 0, 655424, 65529, 0, 655400, 65529, 2, 1048640, 65529, 3, 1048640, 65529, 4, 1048640, 65529, 5, 1048640, 65529, 6, 1048640, 65529, 7, 1048640, 65529, 8, 1048640, 65529, 9, 1048640, 65529, 10, 1048640, 65529, 11, 1048640, 65529, 12, 1048640, 65529, 13, 1048640, 65529, 65534, 1048640, 65529, 65533, 1048640, 65529, 65532, 1048640, 65529, 65531, 1048640, 65529, 65530, 1048640, 65529, 65529, 1048640, 65529, 65528, 1048640, 65529, 65527, 1048640, 65529, 65526, 1048640, 65529, 65525, 1048640, 65529, 65524, 1048640, 65529, 65523, 1048640, 65529, 65522, 1048640, 65529, 65521, 1048640, 65527, 0, 64, 65526, 0, 64, 65525, 0, 64, 65524, 0, 64, 65523, 0, 64, 65522, 0, 64, 65521, 0, 64, 65520, 0, 64, 65519, 0, 64, 65518, 0, 64, 65517, 0, 64, 65516, 0, 64, 65515, 0, 64, 65514, 0, 64, 65530, 4, 1048640, 65530, 5, 1048640, 65530, 6, 1048640, 65528, 4, 1048640, 65528, 5, 1048640, 65528, 6, 1048640, 65530, 3, 1048640, 65528, 3, 1048640)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="GridMap_City" type="GridMap" parent="."]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 mesh_library = ExtResource("2_go701")
-cell_size = Vector3(8, 0.5, 8)
-cell_scale = 8.0
+cell_size = Vector3(1, 0.25, 1)
 data = {
-"cells": PackedInt32Array(65532, 2, 11, 65534, 2, 10, 1, 2, 14, 65527, 3, 1441801, 65527, 6, 1441801, 65531, 65535, 655360, 1, 65535, 655360, 65532, 65535, 655362, 65535, 65535, 1048577)
+"cells": PackedInt32Array(65532, 2, 11, 65534, 2, 10, 1, 2, 14, 65531, 65535, 655360, 1, 65535, 655360, 65532, 65535, 655362, 65535, 65535, 1048577, 65525, 4, 1441802, 65525, 7, 1441802)
 }
 
-[node name="PlayerVehicleWagon" parent="." instance=ExtResource("3_5a7ea")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0.6, 5.7)
-
 [node name="FloorBox" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 use_collision = true
 size = Vector3(500, 1, 500)
 material = SubResource("StandardMaterial3D_fo5ed")
+
+[node name="PlayerStationWagon" parent="." instance=ExtResource("4_fo5ed")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 2, 6)

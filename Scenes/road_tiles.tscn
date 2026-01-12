@@ -394,7 +394,6 @@ shape = SubResource("ConvexPolygonShape3D_tu20h")
 [node name="road-straight-half" parent="." instance=ExtResource("64_jubw7")]
 
 [node name="road-straight" type="Node3D" parent="."]
-visible = false
 
 [node name="road-straight" type="MeshInstance3D" parent="road-straight"]
 mesh = SubResource("ArrayMesh_yen25")
