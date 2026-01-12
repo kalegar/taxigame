@@ -16,6 +16,11 @@ var door_positions_left : Array
 var door_positions_right : Array
 var door_position_indexes : Array
 var mirror:Mirror3D
+var passenger_sprite : AnimatedSprite3D
+var wheel_front_right : VehicleWheel3D
+var wheel_front_left : VehicleWheel3D
+var wheel_rear_right : VehicleWheel3D
+var wheel_rear_left : VehicleWheel3D
 const MAX_STEER =  0.3
 const ENGINE_POWER = 200
 const BRAKE_POWER = 5.0
@@ -30,6 +35,14 @@ func _ready():
 	spedometer = get_node("Spedometer Needle")
 	rpm_meter = get_node("RPM Needle")
 	mirror = get_node("Mirror3D")
+	passenger_sprite = get_node("PassengerSprite")
+	wheel_front_right = get_node("WheelFrontRight")
+	wheel_front_left = get_node("WheelFrontLeft")
+	wheel_rear_right = get_node("WheelRearRight")
+	wheel_rear_left = get_node("WheelRearLeft")
+	passenger_sprite.autoplay = "elf"
+	var anims = ["elf","merchant","robot"]
+	passenger_sprite.play(anims.pick_random())
 	rpm_zero_basis = rpm_meter.basis
 	rpm_angle = 0
 	steering_wheel_zero_basis = steering_wheel.basis
@@ -38,6 +51,23 @@ func _ready():
 	door_positions_right = [door_right.transform.basis, door_right.transform.basis.rotated(Vector3(0,1,0), .9)]
 	door_position_indexes = [0,0]
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func is_flipped() -> bool:
+	return transform.basis.y.dot(Vector3.UP) < 0
+	
+func is_stuck() -> bool:
+	var wheels:Array[VehicleWheel3D] = [wheel_front_right,wheel_front_left,wheel_rear_left,wheel_rear_right]
+	var any_contacting = false
+	for wheel in wheels:
+		if wheel.is_in_contact():
+			any_contacting = true
+			break
+	return linear_velocity.length_squared() < 1 and not any_contacting
+	
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_pressed("action_unstuck"):
+		# TODO: Implement "tow truck" or similar that respawns you at a nearby point.
+		apply_central_force(Vector3(0,5000,0))
 	
 func _process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
