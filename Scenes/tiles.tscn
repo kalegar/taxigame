@@ -1,0 +1,343 @@
+[gd_scene load_steps=114 format=3 uid="uid://ccy60opfob8ke"]
+
+[ext_resource type="PackedScene" uid="uid://b4uty1wrancl8" path="res://Assets/Kenney/bridge-pillar-wide.fbx" id="1_cwbp5"]
+[ext_resource type="PackedScene" uid="uid://bf36p48fulgx4" path="res://Assets/Kenney/bridge-pillar.fbx" id="2_cglhp"]
+[ext_resource type="PackedScene" uid="uid://dwsg0ynfxybum" path="res://Assets/Kenney/building-a.fbx" id="3_egw8f"]
+[ext_resource type="PackedScene" uid="uid://dydoxwbkafxxe" path="res://Assets/Kenney/building-b.fbx" id="4_d2ol6"]
+[ext_resource type="PackedScene" uid="uid://cf8jkxw3negeq" path="res://Assets/Kenney/building-c.fbx" id="5_11suy"]
+[ext_resource type="PackedScene" uid="uid://dscs16doafjob" path="res://Assets/Kenney/building-d.fbx" id="6_rb8tw"]
+[ext_resource type="PackedScene" uid="uid://b2qh0elbww26p" path="res://Assets/Kenney/building-e.fbx" id="7_q3o2u"]
+[ext_resource type="PackedScene" uid="uid://c580guxk7fyyi" path="res://Assets/Kenney/building-f.fbx" id="8_qa7y1"]
+[ext_resource type="PackedScene" uid="uid://jdaeuqunda2m" path="res://Assets/Kenney/building-g.fbx" id="9_6m5fq"]
+[ext_resource type="PackedScene" uid="uid://cbpxxgqq7cs4h" path="res://Assets/Kenney/building-h.fbx" id="10_q2vkn"]
+[ext_resource type="PackedScene" uid="uid://c5kxyc5iyv6cg" path="res://Assets/Kenney/building-i.fbx" id="11_srw4o"]
+[ext_resource type="PackedScene" uid="uid://b8ougailksf83" path="res://Assets/Kenney/building-j.fbx" id="12_63ixh"]
+[ext_resource type="PackedScene" uid="uid://byjwtj5xm7lhi" path="res://Assets/Kenney/building-k.fbx" id="13_ov62l"]
+[ext_resource type="PackedScene" uid="uid://2tsh47c3mg38" path="res://Assets/Kenney/building-l.fbx" id="14_084co"]
+[ext_resource type="PackedScene" uid="uid://dhueduxlbq7es" path="res://Assets/Kenney/building-m.fbx" id="15_eejhi"]
+[ext_resource type="PackedScene" uid="uid://c6k21lubpkb1i" path="res://Assets/Kenney/building-n.fbx" id="16_pojys"]
+[ext_resource type="PackedScene" uid="uid://c0nwh4jyyq7nl" path="res://Assets/Kenney/building-skyscraper-a.fbx" id="17_l23s3"]
+[ext_resource type="PackedScene" uid="uid://mm54gahkthml" path="res://Assets/Kenney/building-skyscraper-b.fbx" id="18_fe2qj"]
+[ext_resource type="PackedScene" uid="uid://dphul5dpid44g" path="res://Assets/Kenney/building-skyscraper-c.fbx" id="19_8teyt"]
+[ext_resource type="PackedScene" uid="uid://m2web2sggqg4" path="res://Assets/Kenney/building-skyscraper-d.fbx" id="20_3pthq"]
+[ext_resource type="PackedScene" uid="uid://cgyd31nqxrt30" path="res://Assets/Kenney/building-skyscraper-e.fbx" id="21_i1cso"]
+[ext_resource type="PackedScene" uid="uid://bspdef7wroes5" path="res://Assets/Kenney/construction-barrier.fbx" id="22_hrjko"]
+[ext_resource type="PackedScene" uid="uid://cb8dm04vkyq0m" path="res://Assets/Kenney/construction-cone.fbx" id="23_8nyhd"]
+[ext_resource type="PackedScene" uid="uid://bwu1i5toftdm8" path="res://Assets/Kenney/construction-light.fbx" id="24_dvrbv"]
+[ext_resource type="PackedScene" uid="uid://n2ragigux320" path="res://Assets/Kenney/detail-awning-wide.fbx" id="25_nrq3g"]
+[ext_resource type="PackedScene" uid="uid://c6ecb3jh5hw4t" path="res://Assets/Kenney/detail-awning.fbx" id="26_j46gn"]
+[ext_resource type="PackedScene" uid="uid://bvjokoyy1mjx7" path="res://Assets/Kenney/detail-overhang-wide.fbx" id="27_gs1fv"]
+[ext_resource type="PackedScene" uid="uid://boybtg3wlgt5i" path="res://Assets/Kenney/detail-overhang.fbx" id="28_o8khq"]
+[ext_resource type="PackedScene" uid="uid://dwkgbqqgw0vao" path="res://Assets/Kenney/detail-parasol-a.fbx" id="29_cug6i"]
+[ext_resource type="PackedScene" uid="uid://6d80s7pskgim" path="res://Assets/Kenney/detail-parasol-b.fbx" id="30_qdekr"]
+[ext_resource type="PackedScene" uid="uid://bd2wtlql1pxas" path="res://Assets/Kenney/light-curved-cross.fbx" id="31_0mlrn"]
+[ext_resource type="PackedScene" uid="uid://b50drbhohlkwd" path="res://Assets/Kenney/light-curved-double.fbx" id="32_b5mro"]
+[ext_resource type="PackedScene" uid="uid://fpjf2vaeso24" path="res://Assets/Kenney/light-curved.fbx" id="33_kt4rd"]
+[ext_resource type="PackedScene" uid="uid://dam6gkyrsk4lk" path="res://Assets/Kenney/light-square-cross.fbx" id="34_yxb5y"]
+[ext_resource type="PackedScene" uid="uid://dexnyggmyina" path="res://Assets/Kenney/light-square-double.fbx" id="35_vohpn"]
+[ext_resource type="PackedScene" uid="uid://b5cykq3ou0d5o" path="res://Assets/Kenney/light-square.fbx" id="36_2nbec"]
+[ext_resource type="PackedScene" uid="uid://boyi3tyt1j6s1" path="res://Assets/Kenney/low-detail-building-a.fbx" id="37_xcmfu"]
+[ext_resource type="PackedScene" uid="uid://b0e71xa818vhl" path="res://Assets/Kenney/low-detail-building-b.fbx" id="38_5231t"]
+[ext_resource type="PackedScene" uid="uid://bh7asldakgup5" path="res://Assets/Kenney/low-detail-building-c.fbx" id="39_toc7k"]
+[ext_resource type="PackedScene" uid="uid://recqskuidg3t" path="res://Assets/Kenney/low-detail-building-d.fbx" id="40_7t7o8"]
+[ext_resource type="PackedScene" uid="uid://b15m2hwqy7icw" path="res://Assets/Kenney/low-detail-building-e.fbx" id="41_10m3b"]
+[ext_resource type="PackedScene" uid="uid://c6vro0euw36rx" path="res://Assets/Kenney/low-detail-building-f.fbx" id="42_si7q4"]
+[ext_resource type="PackedScene" uid="uid://dh1s33mwej058" path="res://Assets/Kenney/low-detail-building-g.fbx" id="43_ccnh1"]
+[ext_resource type="PackedScene" uid="uid://dm2ipyt0o12bn" path="res://Assets/Kenney/low-detail-building-h.fbx" id="44_lcqm7"]
+[ext_resource type="PackedScene" uid="uid://bna2ql5elnj3n" path="res://Assets/Kenney/low-detail-building-i.fbx" id="45_gx8uu"]
+[ext_resource type="PackedScene" uid="uid://dxedksewm3wtx" path="res://Assets/Kenney/low-detail-building-j.fbx" id="46_ot5bq"]
+[ext_resource type="PackedScene" uid="uid://bqcsp5v0tjvj5" path="res://Assets/Kenney/low-detail-building-k.fbx" id="47_u3r0m"]
+[ext_resource type="PackedScene" uid="uid://chd416i834unb" path="res://Assets/Kenney/low-detail-building-l.fbx" id="48_76m65"]
+[ext_resource type="PackedScene" uid="uid://v5o3rpuoj6ew" path="res://Assets/Kenney/low-detail-building-m.fbx" id="49_rc6s6"]
+[ext_resource type="PackedScene" uid="uid://dukro80xsedaw" path="res://Assets/Kenney/low-detail-building-n.fbx" id="50_txt70"]
+[ext_resource type="PackedScene" uid="uid://c4cw4cpot6dll" path="res://Assets/Kenney/low-detail-building-wide-a.fbx" id="51_7wd22"]
+[ext_resource type="PackedScene" uid="uid://jjbqs8eufkgw" path="res://Assets/Kenney/low-detail-building-wide-b.fbx" id="52_pxnu3"]
+[ext_resource type="PackedScene" uid="uid://dnkgntncc8cuo" path="res://Assets/Kenney/road-bend-barrier.fbx" id="53_3css3"]
+[ext_resource type="PackedScene" uid="uid://d1egkvvdmrf38" path="res://Assets/Kenney/road-bend-sidewalk.fbx" id="54_n4xrr"]
+[ext_resource type="PackedScene" uid="uid://dlp5tgkp33au5" path="res://Assets/Kenney/road-bend-square-barrier.fbx" id="55_gmqyv"]
+[ext_resource type="PackedScene" uid="uid://cbo5yc1wnm8dn" path="res://Assets/Kenney/road-bend-square.fbx" id="56_qglmb"]
+[ext_resource type="PackedScene" uid="uid://u2361r8eydyx" path="res://Assets/Kenney/road-bend.fbx" id="57_hkr4l"]
+[ext_resource type="PackedScene" uid="uid://cesf173u4lr70" path="res://Assets/Kenney/road-bridge.fbx" id="58_k4bg0"]
+[ext_resource type="PackedScene" uid="uid://3jkpr375fc86" path="res://Assets/Kenney/road-crossing.fbx" id="59_4hat3"]
+[ext_resource type="PackedScene" uid="uid://bcrnmofy3yc3o" path="res://Assets/Kenney/road-crossroad-barrier.fbx" id="60_yfiq3"]
+[ext_resource type="PackedScene" uid="uid://dx8kug1bbm5lw" path="res://Assets/Kenney/road-crossroad-line.fbx" id="61_rtbqm"]
+[ext_resource type="PackedScene" uid="uid://biuv67sd60ke2" path="res://Assets/Kenney/road-crossroad-path.fbx" id="62_4xhgy"]
+[ext_resource type="PackedScene" uid="uid://ututavnpd3vw" path="res://Assets/Kenney/road-crossroad.fbx" id="63_54oxd"]
+[ext_resource type="PackedScene" uid="uid://vijd0cn3u7nj" path="res://Assets/Kenney/road-curve-barrier.fbx" id="64_54d4c"]
+[ext_resource type="PackedScene" uid="uid://bu2sfmoqqxksx" path="res://Assets/Kenney/road-curve-intersection-barrier.fbx" id="65_c1xwr"]
+[ext_resource type="PackedScene" uid="uid://bckpg2ygckqts" path="res://Assets/Kenney/road-curve-intersection.fbx" id="66_isp80"]
+[ext_resource type="PackedScene" uid="uid://1o0txpfkhj6f" path="res://Assets/Kenney/road-curve-pavement.fbx" id="67_5fvl4"]
+[ext_resource type="PackedScene" uid="uid://ddbosqtkh8wam" path="res://Assets/Kenney/road-curve.fbx" id="68_cbhlq"]
+[ext_resource type="PackedScene" uid="uid://crpoouqb0lpov" path="res://Assets/Kenney/road-driveway-double-barrier.fbx" id="69_gjg6m"]
+[ext_resource type="PackedScene" uid="uid://b5un086yv48jd" path="res://Assets/Kenney/road-driveway-double.fbx" id="70_rg7ag"]
+[ext_resource type="PackedScene" uid="uid://dak884xnqbk5m" path="res://Assets/Kenney/road-driveway-single-barrier.fbx" id="71_yw71p"]
+[ext_resource type="PackedScene" uid="uid://cs1h5w5cmddlu" path="res://Assets/Kenney/road-driveway-single.fbx" id="72_1cnod"]
+[ext_resource type="PackedScene" uid="uid://cmprig0kg414e" path="res://Assets/Kenney/road-end-barrier.fbx" id="73_sluxv"]
+[ext_resource type="PackedScene" uid="uid://dtdrsafwruso7" path="res://Assets/Kenney/road-end-round-barrier.fbx" id="74_5ubic"]
+[ext_resource type="PackedScene" uid="uid://bjdkehuggq80d" path="res://Assets/Kenney/road-end-round.fbx" id="75_jr7sl"]
+[ext_resource type="PackedScene" uid="uid://65dafw5snimo" path="res://Assets/Kenney/road-end.fbx" id="76_x53m7"]
+[ext_resource type="PackedScene" uid="uid://jpdqwilhtvlh" path="res://Assets/Kenney/road-intersection-barrier.fbx" id="77_mph82"]
+[ext_resource type="PackedScene" uid="uid://cunweknx6wdy7" path="res://Assets/Kenney/road-intersection-line.fbx" id="78_tygsk"]
+[ext_resource type="PackedScene" uid="uid://boe17q55u8huj" path="res://Assets/Kenney/road-intersection-path.fbx" id="79_tmlyb"]
+[ext_resource type="PackedScene" uid="uid://qlbpggkog100" path="res://Assets/Kenney/road-intersection.fbx" id="80_bjsow"]
+[ext_resource type="PackedScene" uid="uid://csqy44qtvvjn7" path="res://Assets/Kenney/road-roundabout-barrier.fbx" id="81_jeram"]
+[ext_resource type="PackedScene" uid="uid://dov7df8caa7oo" path="res://Assets/Kenney/road-roundabout.fbx" id="82_gr6r5"]
+[ext_resource type="PackedScene" uid="uid://u76h8ahdu4uj" path="res://Assets/Kenney/road-side-barrier.fbx" id="83_244qt"]
+[ext_resource type="PackedScene" uid="uid://b82a6045qyovt" path="res://Assets/Kenney/road-side-entry-barrier.fbx" id="84_6s4x2"]
+[ext_resource type="PackedScene" uid="uid://b6t8xtmcvg3j7" path="res://Assets/Kenney/road-side-entry.fbx" id="85_lyrcs"]
+[ext_resource type="PackedScene" uid="uid://ddjhgx4ubkqam" path="res://Assets/Kenney/road-side-exit-barrier.fbx" id="86_yu2n4"]
+[ext_resource type="PackedScene" uid="uid://t3me1iwqpxri" path="res://Assets/Kenney/road-side-exit.fbx" id="87_yohni"]
+[ext_resource type="PackedScene" uid="uid://ioiu4pnw8r4g" path="res://Assets/Kenney/road-side.fbx" id="88_c6b87"]
+[ext_resource type="PackedScene" uid="uid://dwnoejhikmxye" path="res://Assets/Kenney/road-slant-barrier.fbx" id="89_bdvo8"]
+[ext_resource type="PackedScene" uid="uid://bweqtbjvvjbu4" path="res://Assets/Kenney/road-slant-curve-barrier.fbx" id="90_grya8"]
+[ext_resource type="PackedScene" uid="uid://da7ses2rrrpgg" path="res://Assets/Kenney/road-slant-curve.fbx" id="91_fdh2b"]
+[ext_resource type="PackedScene" uid="uid://bsnvsaxnjtft8" path="res://Assets/Kenney/road-slant-flat-curve.fbx" id="92_neu8e"]
+[ext_resource type="PackedScene" uid="uid://dubd55gcw4ta8" path="res://Assets/Kenney/road-slant-flat-high.fbx" id="93_s8jwb"]
+[ext_resource type="PackedScene" uid="uid://cqgjpjn4qlon1" path="res://Assets/Kenney/road-slant-flat.fbx" id="94_p1giw"]
+[ext_resource type="PackedScene" uid="uid://rmfpypyl8t50" path="res://Assets/Kenney/road-slant-high-barrier.fbx" id="95_ohivt"]
+[ext_resource type="PackedScene" uid="uid://ci7qb1q81elal" path="res://Assets/Kenney/road-slant-high.fbx" id="96_w3xf2"]
+[ext_resource type="PackedScene" uid="uid://cirgluqwr7q7" path="res://Assets/Kenney/road-slant.fbx" id="97_v8h08"]
+[ext_resource type="PackedScene" uid="uid://but78x15krpe1" path="res://Assets/Kenney/road-split-barrier.fbx" id="98_jku1j"]
+[ext_resource type="PackedScene" uid="uid://bd71c6slxbkmo" path="res://Assets/Kenney/road-split.fbx" id="99_8tdvy"]
+[ext_resource type="PackedScene" uid="uid://c7w6rje5euxfn" path="res://Assets/Kenney/road-square-barrier.fbx" id="100_dt6px"]
+[ext_resource type="PackedScene" uid="uid://bt71nuldjevnw" path="res://Assets/Kenney/road-square.fbx" id="101_gfl8s"]
+[ext_resource type="PackedScene" uid="uid://c1haqldlkqsl1" path="res://Assets/Kenney/road-straight-barrier-end.fbx" id="102_x4dyl"]
+[ext_resource type="PackedScene" uid="uid://qudd5fxtjhp6" path="res://Assets/Kenney/road-straight-barrier-half.fbx" id="103_02rvf"]
+[ext_resource type="PackedScene" uid="uid://ba42ss0srar7r" path="res://Assets/Kenney/road-straight-barrier.fbx" id="104_afvsa"]
+[ext_resource type="PackedScene" uid="uid://n6acee6dr3lh" path="res://Assets/Kenney/road-straight-half.fbx" id="105_hgush"]
+[ext_resource type="PackedScene" uid="uid://bjs56o7bd6cln" path="res://Assets/Kenney/road-straight.fbx" id="106_4rqr5"]
+[ext_resource type="PackedScene" uid="uid://hsbrqfyv6ukv" path="res://Assets/Kenney/sign-highway-detailed.fbx" id="107_37w6t"]
+[ext_resource type="PackedScene" uid="uid://bwk2eo7bffkxx" path="res://Assets/Kenney/sign-highway-wide.fbx" id="108_4cdlp"]
+[ext_resource type="PackedScene" uid="uid://rysfvqce7tgl" path="res://Assets/Kenney/sign-highway.fbx" id="109_tok4k"]
+[ext_resource type="PackedScene" uid="uid://jwyw212j2lhd" path="res://Assets/Kenney/tile-high.fbx" id="110_4kqco"]
+[ext_resource type="PackedScene" uid="uid://bymsnvb8kcy3y" path="res://Assets/Kenney/tile-low.fbx" id="111_c0li0"]
+[ext_resource type="PackedScene" uid="uid://drby6xwpqqaot" path="res://Assets/Kenney/tile-slant.fbx" id="112_tjayu"]
+[ext_resource type="PackedScene" uid="uid://dob7nw8uoypjg" path="res://Assets/Kenney/tile-slantHigh.fbx" id="113_s0v1q"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="bridge-pillar-wide" parent="." instance=ExtResource("1_cwbp5")]
+
+[node name="bridge-pillar" parent="." instance=ExtResource("2_cglhp")]
+
+[node name="building-a" parent="." instance=ExtResource("3_egw8f")]
+
+[node name="building-b" parent="." instance=ExtResource("4_d2ol6")]
+
+[node name="building-c" parent="." instance=ExtResource("5_11suy")]
+
+[node name="building-d" parent="." instance=ExtResource("6_rb8tw")]
+
+[node name="building-e" parent="." instance=ExtResource("7_q3o2u")]
+
+[node name="building-f" parent="." instance=ExtResource("8_qa7y1")]
+
+[node name="building-g" parent="." instance=ExtResource("9_6m5fq")]
+
+[node name="building-h" parent="." instance=ExtResource("10_q2vkn")]
+
+[node name="building-i" parent="." instance=ExtResource("11_srw4o")]
+
+[node name="building-j" parent="." instance=ExtResource("12_63ixh")]
+
+[node name="building-k" parent="." instance=ExtResource("13_ov62l")]
+
+[node name="building-l" parent="." instance=ExtResource("14_084co")]
+
+[node name="building-m" parent="." instance=ExtResource("15_eejhi")]
+
+[node name="building-n" parent="." instance=ExtResource("16_pojys")]
+
+[node name="building-skyscraper-a" parent="." instance=ExtResource("17_l23s3")]
+
+[node name="building-skyscraper-b" parent="." instance=ExtResource("18_fe2qj")]
+
+[node name="building-skyscraper-c" parent="." instance=ExtResource("19_8teyt")]
+
+[node name="building-skyscraper-d" parent="." instance=ExtResource("20_3pthq")]
+
+[node name="building-skyscraper-e" parent="." instance=ExtResource("21_i1cso")]
+
+[node name="construction-barrier" parent="." instance=ExtResource("22_hrjko")]
+
+[node name="construction-cone" parent="." instance=ExtResource("23_8nyhd")]
+
+[node name="construction-light" parent="." instance=ExtResource("24_dvrbv")]
+
+[node name="detail-awning-wide" parent="." instance=ExtResource("25_nrq3g")]
+
+[node name="detail-awning" parent="." instance=ExtResource("26_j46gn")]
+
+[node name="detail-overhang-wide" parent="." instance=ExtResource("27_gs1fv")]
+
+[node name="detail-overhang" parent="." instance=ExtResource("28_o8khq")]
+
+[node name="detail-parasol-a" parent="." instance=ExtResource("29_cug6i")]
+
+[node name="detail-parasol-b" parent="." instance=ExtResource("30_qdekr")]
+
+[node name="light-curved-cross" parent="." instance=ExtResource("31_0mlrn")]
+
+[node name="light-curved-double" parent="." instance=ExtResource("32_b5mro")]
+
+[node name="light-curved" parent="." instance=ExtResource("33_kt4rd")]
+
+[node name="light-square-cross" parent="." instance=ExtResource("34_yxb5y")]
+
+[node name="light-square-double" parent="." instance=ExtResource("35_vohpn")]
+
+[node name="light-square" parent="." instance=ExtResource("36_2nbec")]
+
+[node name="low-detail-building-a" parent="." instance=ExtResource("37_xcmfu")]
+
+[node name="low-detail-building-b" parent="." instance=ExtResource("38_5231t")]
+
+[node name="low-detail-building-c" parent="." instance=ExtResource("39_toc7k")]
+
+[node name="low-detail-building-d" parent="." instance=ExtResource("40_7t7o8")]
+
+[node name="low-detail-building-e" parent="." instance=ExtResource("41_10m3b")]
+
+[node name="low-detail-building-f" parent="." instance=ExtResource("42_si7q4")]
+
+[node name="low-detail-building-g" parent="." instance=ExtResource("43_ccnh1")]
+
+[node name="low-detail-building-h" parent="." instance=ExtResource("44_lcqm7")]
+
+[node name="low-detail-building-i" parent="." instance=ExtResource("45_gx8uu")]
+
+[node name="low-detail-building-j" parent="." instance=ExtResource("46_ot5bq")]
+
+[node name="low-detail-building-k" parent="." instance=ExtResource("47_u3r0m")]
+
+[node name="low-detail-building-l" parent="." instance=ExtResource("48_76m65")]
+
+[node name="low-detail-building-m" parent="." instance=ExtResource("49_rc6s6")]
+
+[node name="low-detail-building-n" parent="." instance=ExtResource("50_txt70")]
+
+[node name="low-detail-building-wide-a" parent="." instance=ExtResource("51_7wd22")]
+
+[node name="low-detail-building-wide-b" parent="." instance=ExtResource("52_pxnu3")]
+
+[node name="road-bend-barrier" parent="." instance=ExtResource("53_3css3")]
+
+[node name="road-bend-sidewalk" parent="." instance=ExtResource("54_n4xrr")]
+
+[node name="road-bend-square-barrier" parent="." instance=ExtResource("55_gmqyv")]
+
+[node name="road-bend-square" parent="." instance=ExtResource("56_qglmb")]
+
+[node name="road-bend" parent="." instance=ExtResource("57_hkr4l")]
+
+[node name="road-bridge" parent="." instance=ExtResource("58_k4bg0")]
+
+[node name="road-crossing" parent="." instance=ExtResource("59_4hat3")]
+
+[node name="road-crossroad-barrier" parent="." instance=ExtResource("60_yfiq3")]
+
+[node name="road-crossroad-line" parent="." instance=ExtResource("61_rtbqm")]
+
+[node name="road-crossroad-path" parent="." instance=ExtResource("62_4xhgy")]
+
+[node name="road-crossroad" parent="." instance=ExtResource("63_54oxd")]
+
+[node name="road-curve-barrier" parent="." instance=ExtResource("64_54d4c")]
+
+[node name="road-curve-intersection-barrier" parent="." instance=ExtResource("65_c1xwr")]
+
+[node name="road-curve-intersection" parent="." instance=ExtResource("66_isp80")]
+
+[node name="road-curve-pavement" parent="." instance=ExtResource("67_5fvl4")]
+
+[node name="road-curve" parent="." instance=ExtResource("68_cbhlq")]
+
+[node name="road-driveway-double-barrier" parent="." instance=ExtResource("69_gjg6m")]
+
+[node name="road-driveway-double" parent="." instance=ExtResource("70_rg7ag")]
+
+[node name="road-driveway-single-barrier" parent="." instance=ExtResource("71_yw71p")]
+
+[node name="road-driveway-single" parent="." instance=ExtResource("72_1cnod")]
+
+[node name="road-end-barrier" parent="." instance=ExtResource("73_sluxv")]
+
+[node name="road-end-round-barrier" parent="." instance=ExtResource("74_5ubic")]
+
+[node name="road-end-round" parent="." instance=ExtResource("75_jr7sl")]
+
+[node name="road-end" parent="." instance=ExtResource("76_x53m7")]
+
+[node name="road-intersection-barrier" parent="." instance=ExtResource("77_mph82")]
+
+[node name="road-intersection-line" parent="." instance=ExtResource("78_tygsk")]
+
+[node name="road-intersection-path" parent="." instance=ExtResource("79_tmlyb")]
+
+[node name="road-intersection" parent="." instance=ExtResource("80_bjsow")]
+
+[node name="road-roundabout-barrier" parent="." instance=ExtResource("81_jeram")]
+
+[node name="road-roundabout" parent="." instance=ExtResource("82_gr6r5")]
+
+[node name="road-side-barrier" parent="." instance=ExtResource("83_244qt")]
+
+[node name="road-side-entry-barrier" parent="." instance=ExtResource("84_6s4x2")]
+
+[node name="road-side-entry" parent="." instance=ExtResource("85_lyrcs")]
+
+[node name="road-side-exit-barrier" parent="." instance=ExtResource("86_yu2n4")]
+
+[node name="road-side-exit" parent="." instance=ExtResource("87_yohni")]
+
+[node name="road-side" parent="." instance=ExtResource("88_c6b87")]
+
+[node name="road-slant-barrier" parent="." instance=ExtResource("89_bdvo8")]
+
+[node name="road-slant-curve-barrier" parent="." instance=ExtResource("90_grya8")]
+
+[node name="road-slant-curve" parent="." instance=ExtResource("91_fdh2b")]
+
+[node name="road-slant-flat-curve" parent="." instance=ExtResource("92_neu8e")]
+
+[node name="road-slant-flat-high" parent="." instance=ExtResource("93_s8jwb")]
+
+[node name="road-slant-flat" parent="." instance=ExtResource("94_p1giw")]
+
+[node name="road-slant-high-barrier" parent="." instance=ExtResource("95_ohivt")]
+
+[node name="road-slant-high" parent="." instance=ExtResource("96_w3xf2")]
+
+[node name="road-slant" parent="." instance=ExtResource("97_v8h08")]
+
+[node name="road-split-barrier" parent="." instance=ExtResource("98_jku1j")]
+
+[node name="road-split" parent="." instance=ExtResource("99_8tdvy")]
+
+[node name="road-square-barrier" parent="." instance=ExtResource("100_dt6px")]
+
+[node name="road-square" parent="." instance=ExtResource("101_gfl8s")]
+
+[node name="road-straight-barrier-end" parent="." instance=ExtResource("102_x4dyl")]
+
+[node name="road-straight-barrier-half" parent="." instance=ExtResource("103_02rvf")]
+
+[node name="road-straight-barrier" parent="." instance=ExtResource("104_afvsa")]
+
+[node name="road-straight-half" parent="." instance=ExtResource("105_hgush")]
+
+[node name="road-straight" parent="." instance=ExtResource("106_4rqr5")]
+
+[node name="sign-highway-detailed" parent="." instance=ExtResource("107_37w6t")]
+
+[node name="sign-highway-wide" parent="." instance=ExtResource("108_4cdlp")]
+
+[node name="sign-highway" parent="." instance=ExtResource("109_tok4k")]
+
+[node name="tile-high" parent="." instance=ExtResource("110_4kqco")]
+
+[node name="tile-low" parent="." instance=ExtResource("111_c0li0")]
+
+[node name="tile-slant" parent="." instance=ExtResource("112_tjayu")]
+
+[node name="tile-slantHigh" parent="." instance=ExtResource("113_s0v1q")]
