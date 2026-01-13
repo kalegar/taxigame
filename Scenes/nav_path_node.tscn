@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2m70n4hlv1hr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loewb"]
+albedo_color = Color(0.8668637, 0.32529825, 0.2466706, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vrw4g"]
+
+[node name="NavPathNode" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_loewb")
+mesh = SubResource("SphereMesh_vrw4g")
