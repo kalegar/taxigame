@@ -1,27 +1,31 @@
 class_name Passenger
 extends Node3D
 
+signal pickup_timer_started
+signal dropoff_timer_started
+signal passenger_picked_up(success:bool)
+signal passenger_dropped_off(success:bool)
+
 @export var taxi_job:TaxiJob
 @export var pickup:TaxiPickup
 @export var destination:TaxiDestination
 @export var passenger_scene:PackedScene
+@onready var timer_pickup:Timer = get_node("TimerPickup")
+@onready var timer_dropoff:Timer = get_node("TimerDropoff")
 var scene:Node
 var picked_up:bool = false
 
 func _on_pickup_area_entered(_body:Node3D) -> void:
-	picked_up = true
-	pickup.visible = false
-	destination.visible = true
-	print("Passenger picked up!")
+	if picked_up:
+		return
+	timer_pickup.start()
+	pickup_timer_started.emit()
 	
 func _on_destination_area_entered(_body:Node3D) -> void:
-	if not picked_up or not destination.visible:
-		print("not picked up or not visible")
+	if !picked_up:
 		return
-	destination.visible = false
-	pickup.visible = false
-	picked_up = false
-	print("Passenger delivered!")
+	timer_dropoff.start()
+	dropoff_timer_started.emit()
 
 func apply_job(job:TaxiJob) -> void:
 	passenger_scene = job.passenger_scenes.pick_random()
@@ -29,6 +33,7 @@ func apply_job(job:TaxiJob) -> void:
 		scene.queue_free()
 	scene = passenger_scene.instantiate()
 	add_child(scene)
+	print("Scene: ",scene.name)
 	
 	var pickups = get_tree().get_nodes_in_group("pickups")
 	var destinations = get_tree().get_nodes_in_group("destinations")
@@ -52,4 +57,30 @@ func _ready() -> void:
 		apply_job(taxi_job)
 
 func _process(_delta: float) -> void:
-	visible = picked_up
+	if scene != null:
+		scene.visible = picked_up
+
+func _on_timer_pickup_timeout() -> void:
+	timer_pickup.stop()
+	if pickup.is_body_in_area(get_parent_node_3d()):
+		picked_up = true
+		pickup.visible = false
+		destination.visible = true
+		passenger_picked_up.emit(true)
+		print("Passenger picked up!")
+	else:
+		passenger_picked_up.emit(false)
+
+func _on_timer_dropoff_timeout() -> void:
+	timer_dropoff.stop()
+	if destination.is_body_in_area(get_parent_node_3d()):
+		if not picked_up or not destination.visible:
+			print("not picked up or not visible")
+			return
+		destination.visible = false
+		pickup.visible = false
+		picked_up = false
+		passenger_dropped_off.emit(true)
+		print("Passenger delivered!")
+	else:
+		passenger_picked_up.emit(false)

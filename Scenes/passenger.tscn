@@ -4,3 +4,12 @@
 
 [node name="Passenger" type="Node3D"]
 script = ExtResource("1_plka5")
+
+[node name="TimerPickup" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TimerDropoff" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="TimerPickup" to="." method="_on_timer_pickup_timeout"]
+[connection signal="timeout" from="TimerDropoff" to="." method="_on_timer_dropoff_timeout"]

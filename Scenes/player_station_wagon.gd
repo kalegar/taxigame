@@ -100,9 +100,27 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("action_open_doors"):
 		current_job = _all_jobs.pick_random()
-		for i in 2:
-			door_position_indexes[i] += 1
-			if door_position_indexes[i] > 1:
-				door_position_indexes[i] = 0
-		door_right.basis = door_positions_right[door_position_indexes[0]]
-		door_left.basis = door_positions_left[door_position_indexes[1]]
+
+func open_doors() -> void:
+	for i in 2:
+		door_position_indexes[i] = 1
+	door_right.basis = door_positions_right[door_position_indexes[0]]
+	door_left.basis = door_positions_left[door_position_indexes[1]]
+	
+func close_doors() -> void:
+	for i in 2:
+		door_position_indexes[i] = 0
+	door_right.basis = door_positions_right[door_position_indexes[0]]
+	door_left.basis = door_positions_left[door_position_indexes[1]]
+
+func _on_passenger_dropoff_timer_started() -> void:
+	open_doors()
+
+func _on_passenger_pickup_timer_started() -> void:
+	open_doors()
+
+func _on_passenger_passenger_picked_up(success: bool) -> void:
+	close_doors()
+
+func _on_passenger_passenger_dropped_off(success: bool) -> void:
+	close_doors()
