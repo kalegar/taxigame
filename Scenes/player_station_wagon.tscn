@@ -1,16 +1,8 @@
-[gd_scene load_steps=57 format=4 uid="uid://borupx16dtei6"]
+[gd_scene load_steps=42 format=4 uid="uid://borupx16dtei6"]
 
 [ext_resource type="Script" uid="uid://d32qrx7srok0r" path="res://Scenes/player_station_wagon.gd" id="1_45r7y"]
 [ext_resource type="Script" uid="uid://0vropr3tdmey" path="res://Scenes/rearview_mirror.gd" id="3_e56ke"]
-[ext_resource type="Texture2D" uid="uid://bkx5l15d3wesh" path="res://Assets/NPCs/elf/1.png" id="3_um2bt"]
-[ext_resource type="Texture2D" uid="uid://d4ltf03hd3if6" path="res://Assets/NPCs/elf/2.png" id="4_jef46"]
-[ext_resource type="Texture2D" uid="uid://b2jqed5e0xljp" path="res://Assets/NPCs/elf/3.png" id="5_anu2y"]
-[ext_resource type="Texture2D" uid="uid://chvpgcar7264h" path="res://Assets/NPCs/elf/4.png" id="6_5n6i6"]
-[ext_resource type="Texture2D" uid="uid://df3ri0ai0djsg" path="res://Assets/NPCs/merchant/1.png" id="7_5niat"]
-[ext_resource type="Texture2D" uid="uid://djxbd05v16sxn" path="res://Assets/NPCs/merchant/2.png" id="8_7vb25"]
-[ext_resource type="Texture2D" uid="uid://cf735h0afsp8x" path="res://Assets/NPCs/merchant/3.png" id="9_54ogk"]
-[ext_resource type="Texture2D" uid="uid://rtq8iuf35utx" path="res://Assets/NPCs/merchant/4.png" id="10_rsrcu"]
-[ext_resource type="Texture2D" uid="uid://daby6ick0l2lk" path="res://Assets/NPCs/robot/robot-idle.png" id="11_7vb25"]
+[ext_resource type="Script" uid="uid://cnspj53aqsd0h" path="res://Scenes/passenger.gd" id="3_wevtk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rj6vf"]
 resource_name = "PaintMuscleWagon"
@@ -1006,90 +998,6 @@ albedo_texture = SubResource("ViewportTexture_enq0j")
 [sub_resource type="QuadMesh" id="QuadMesh_wevtk"]
 size = Vector2(0.19, 0.06)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54ogk"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsrcu"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsvm7"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdg2n"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_baxq0"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uxs1t"]
-atlas = ExtResource("11_7vb25")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5niat"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_um2bt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jef46")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_anu2y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5n6i6")
-}],
-"loop": true,
-"name": &"elf",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_5niat")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7vb25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_54ogk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_rsrcu")
-}],
-"loop": true,
-"name": &"merchant",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_54ogk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rsrcu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsvm7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jdg2n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_baxq0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uxs1t")
-}],
-"loop": true,
-"name": &"robot",
-"speed": 5.0
-}]
-
 [node name="PlayerStationWagon" type="VehicleBody3D"]
 mass = 60.0
 gravity_scale = 3.0
@@ -1218,9 +1126,7 @@ layers = 524288
 light_energy = 0.1
 omni_range = 2.0
 
-[node name="PassengerSprite" type="AnimatedSprite3D" parent="."]
+[node name="Passenger" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2833992, 0.88471484, -0.63773954)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_5niat")
-animation = &"robot"
-frame_progress = 0.96970457
+script = ExtResource("3_wevtk")
+metadata/_custom_type_script = "uid://cnspj53aqsd0h"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TaxiJob" load_steps=4 format=3 uid="uid://l4klvskaoonc"]
+
+[ext_resource type="Script" uid="uid://b2a5gmdt5e26p" path="res://Data/taxijob.gd" id="1_dv3qr"]
+[ext_resource type="PackedScene" uid="uid://buw7qjcy4h5fh" path="res://Scenes/Passengers/elf.tscn" id="1_jq7gl"]
+[ext_resource type="PackedScene" uid="uid://cdcbfqosune53" path="res://Scenes/Passengers/merchant.tscn" id="2_iu2jw"]
+
+[resource]
+script = ExtResource("1_dv3qr")
+name = "short_ride"
+passenger_scenes = Array[PackedScene]([ExtResource("1_jq7gl"), ExtResource("2_iu2jw")])
+distance_min = 10.0
+distance_max = 350.0
+metadata/_custom_type_script = "uid://b2a5gmdt5e26p"

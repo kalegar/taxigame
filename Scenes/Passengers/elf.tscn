@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://buw7qjcy4h5fh"]
+
+[ext_resource type="Texture2D" uid="uid://bkx5l15d3wesh" path="res://Assets/NPCs/elf/1.png" id="1_pi2jw"]
+[ext_resource type="Texture2D" uid="uid://d4ltf03hd3if6" path="res://Assets/NPCs/elf/2.png" id="2_xje13"]
+[ext_resource type="Texture2D" uid="uid://b2jqed5e0xljp" path="res://Assets/NPCs/elf/3.png" id="3_4eqsa"]
+[ext_resource type="Texture2D" uid="uid://chvpgcar7264h" path="res://Assets/NPCs/elf/4.png" id="4_0md62"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdpph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pi2jw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xje13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4eqsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0md62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Elf" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_bdpph")

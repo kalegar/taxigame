@@ -1,0 +1,55 @@
+class_name Passenger
+extends Node3D
+
+@export var taxi_job:TaxiJob
+@export var pickup:TaxiPickup
+@export var destination:TaxiDestination
+@export var passenger_scene:PackedScene
+var scene:Node
+var picked_up:bool = false
+
+func _on_pickup_area_entered(_body:Node3D) -> void:
+	picked_up = true
+	pickup.visible = false
+	destination.visible = true
+	print("Passenger picked up!")
+	
+func _on_destination_area_entered(_body:Node3D) -> void:
+	if not picked_up or not destination.visible:
+		print("not picked up or not visible")
+		return
+	destination.visible = false
+	pickup.visible = false
+	picked_up = false
+	print("Passenger delivered!")
+
+func apply_job(job:TaxiJob) -> void:
+	passenger_scene = job.passenger_scenes.pick_random()
+	if scene != null:
+		scene.queue_free()
+	scene = passenger_scene.instantiate()
+	add_child(scene)
+	
+	var pickups = get_tree().get_nodes_in_group("pickups")
+	var destinations = get_tree().get_nodes_in_group("destinations")
+	var dist:float = INF
+	var tries_remaining:int = 32
+	while tries_remaining > 0 and (dist < job.distance_min or dist > job.distance_max):
+		pickup = (pickups.pick_random() as TaxiPickup)
+		destination = (destinations.pick_random() as TaxiDestination)
+		dist = pickup.global_position.distance_to(destination.global_position) # TODO: Generate navmesh path and test that length rather than point to point distance?
+		tries_remaining -= 1
+	
+	if dist < job.distance_min or dist > job.distance_max:
+		print("Failed to find pickup and destination in range!", dist, " ", job.distance_min, " ", job.distance_max)
+	else:
+		pickup.visible = true
+		pickup.area_entered.connect(_on_pickup_area_entered)
+		destination.area_entered.connect(_on_destination_area_entered)
+
+func _ready() -> void:
+	if taxi_job != null:
+		apply_job(taxi_job)
+
+func _process(_delta: float) -> void:
+	visible = picked_up

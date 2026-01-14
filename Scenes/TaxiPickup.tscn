@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyarghdoc07mp"]
+[gd_scene load_steps=5 format=3 uid="uid://cyarghdoc07mp"]
 
 [ext_resource type="Script" uid="uid://cq2vrpq3dhj4v" path="res://Scenes/taxi_pickup.gd" id="1_uf7mw"]
 
@@ -9,6 +9,9 @@ albedo_color = Color(0.55, 0.62499994, 1, 0.7607843)
 [sub_resource type="BoxMesh" id="BoxMesh_l1q8j"]
 size = Vector3(2, 2, 4)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uf7mw"]
+points = PackedVector3Array(1, 1, 2, 1, -1, 2, 1, 1, -2, -1, 1, 2, -1, -1, 2, 1, -1, -2, -1, 1, -2, -1, -1, -2)
+
 [node name="TaxiPickup" type="Node3D"]
 script = ExtResource("1_uf7mw")
 
@@ -16,3 +19,11 @@ script = ExtResource("1_uf7mw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 material_override = SubResource("StandardMaterial3D_uf7mw")
 mesh = SubResource("BoxMesh_l1q8j")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("ConvexPolygonShape3D_uf7mw")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

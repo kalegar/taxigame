@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdcbfqosune53"]
+
+[ext_resource type="Texture2D" uid="uid://df3ri0ai0djsg" path="res://Assets/NPCs/merchant/1.png" id="1_cpqjw"]
+[ext_resource type="Texture2D" uid="uid://djxbd05v16sxn" path="res://Assets/NPCs/merchant/2.png" id="2_v83ca"]
+[ext_resource type="Texture2D" uid="uid://cf735h0afsp8x" path="res://Assets/NPCs/merchant/3.png" id="3_u20mp"]
+[ext_resource type="Texture2D" uid="uid://rtq8iuf35utx" path="res://Assets/NPCs/merchant/4.png" id="4_18jtw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2md2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cpqjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v83ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u20mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_18jtw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Merchant" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_2md2w")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c75y8i1ad2x2l"]
+[gd_scene load_steps=18 format=3 uid="uid://c75y8i1ad2x2l"]
 
 [ext_resource type="MeshLibrary" uid="uid://caup35a3kd83d" path="res://road_tiles.tres" id="1_a02cp"]
 [ext_resource type="Shader" uid="uid://chgiclc7iww7q" path="res://skybox.gdshader" id="1_fo5ed"]
@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://d0ybk4w8qjkc3" path="res://city_tiles.tres" id="2_go701"]
 [ext_resource type="Texture2D" uid="uid://dkunxunkhiw5h" path="res://Assets/Textures/clover.jpg" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://borupx16dtei6" path="res://Scenes/player_station_wagon.tscn" id="4_fo5ed"]
+[ext_resource type="Resource" uid="uid://bc0dgkbd6kpg" path="res://Data/all_taxi_jobs.tres" id="6_0fj1v"]
 [ext_resource type="PackedScene" uid="uid://dkoaeuv7rq0o" path="res://Scenes/TaxiDestination.tscn" id="7_k7acu"]
 [ext_resource type="PackedScene" uid="uid://cyarghdoc07mp" path="res://Scenes/TaxiPickup.tscn" id="8_5v1tr"]
 [ext_resource type="Script" uid="uid://bv0mhfghmcjoe" path="res://Scenes/nav_test.gd" id="9_5v1tr"]
@@ -64,6 +65,7 @@ material = SubResource("StandardMaterial3D_fo5ed")
 
 [node name="PlayerStationWagon" parent="." instance=ExtResource("4_fo5ed")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 2, 6)
+all_jobs = ExtResource("6_0fj1v")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_0fj1v")

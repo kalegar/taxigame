@@ -1,5 +1,7 @@
 extends VehicleBody3D
 
+@export var all_jobs:ResourceGroup
+var _all_jobs:Array[TaxiJob] = []
 var cam_first_person
 var cam_3rd_person
 var cam_rearview
@@ -16,16 +18,22 @@ var door_positions_left : Array
 var door_positions_right : Array
 var door_position_indexes : Array
 var mirror:Mirror3D
-var passenger_sprite : AnimatedSprite3D
 var wheel_front_right : VehicleWheel3D
 var wheel_front_left : VehicleWheel3D
 var wheel_rear_right : VehicleWheel3D
 var wheel_rear_left : VehicleWheel3D
+var current_job : TaxiJob:
+	set(val):
+		current_job = val
+		if current_job != null:
+			passenger.apply_job(current_job)
+var passenger : Passenger
 const MAX_STEER =  0.3
 const ENGINE_POWER = 200
 const BRAKE_POWER = 5.0
 
 func _ready():
+	all_jobs.load_all_into(_all_jobs)
 	cam_first_person = get_node("CameraFirstPerson")
 	cam_3rd_person = get_node("Camera3rdPerson")
 	cam_rearview = get_node("CameraRearview")
@@ -35,14 +43,11 @@ func _ready():
 	spedometer = get_node("Spedometer Needle")
 	rpm_meter = get_node("RPM Needle")
 	mirror = get_node("Mirror3D")
-	passenger_sprite = get_node("PassengerSprite")
+	passenger = get_node("Passenger")
 	wheel_front_right = get_node("WheelFrontRight")
 	wheel_front_left = get_node("WheelFrontLeft")
 	wheel_rear_right = get_node("WheelRearRight")
 	wheel_rear_left = get_node("WheelRearLeft")
-	passenger_sprite.autoplay = "elf"
-	var anims = ["elf","merchant","robot"]
-	passenger_sprite.play(anims.pick_random())
 	rpm_zero_basis = rpm_meter.basis
 	rpm_angle = 0
 	steering_wheel_zero_basis = steering_wheel.basis
@@ -94,6 +99,7 @@ func _process(delta: float) -> void:
 			cam_rearview.current = true
 		
 	if Input.is_action_just_pressed("action_open_doors"):
+		current_job = _all_jobs.pick_random()
 		for i in 2:
 			door_position_indexes[i] += 1
 			if door_position_indexes[i] > 1:

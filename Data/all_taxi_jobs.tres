@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://bc0dgkbd6kpg"]
+
+[ext_resource type="Script" uid="uid://dqhrum0pspok3" path="res://Addons/godot_resource_groups/resource_group.gd" id="1_nfxr8"]
+
+[resource]
+script = ExtResource("1_nfxr8")
+base_folder = "res://Data/TaxiJobs"
+includes = Array[String](["*.tres"])
+paths = Array[String](["res://Data/TaxiJobs/short_ride.tres"])
+metadata/_custom_type_script = "uid://dqhrum0pspok3"

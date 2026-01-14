@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yeh4f80gk4l5"]
+
+[ext_resource type="Script" uid="uid://cnspj53aqsd0h" path="res://Scenes/passenger.gd" id="1_plka5"]
+
+[node name="Passenger" type="Node3D"]
+script = ExtResource("1_plka5")
