@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://f8oe4dn5x18b"]
+
+[ext_resource type="Script" uid="uid://lfe4fm10rjgm" path="res://Scenes/taxi_location.gd" id="1_jjb80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjb80"]
+transparency = 1
+albedo_color = Color(0.54901963, 0.62352943, 1, 0.7607843)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l1q8j"]
+size = Vector3(2, 2, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uf7mw"]
+points = PackedVector3Array(1, 1, 2, 1, -1, 2, 1, 1, -2, -1, 1, 2, -1, -1, 2, 1, -1, -2, -1, 1, -2, -1, -1, -2)
+
+[node name="TaxiLocation" type="Node3D"]
+script = ExtResource("1_jjb80")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+material_override = SubResource("StandardMaterial3D_jjb80")
+mesh = SubResource("BoxMesh_l1q8j")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("ConvexPolygonShape3D_uf7mw")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

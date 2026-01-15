@@ -9,5 +9,5 @@ script = ExtResource("1_dv3qr")
 name = "short_ride"
 passenger_scenes = Array[PackedScene]([ExtResource("1_jq7gl"), ExtResource("2_iu2jw")])
 distance_min = 10.0
-distance_max = 350.0
+distance_max = 500.0
 metadata/_custom_type_script = "uid://b2a5gmdt5e26p"

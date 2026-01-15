@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndvxe4erahiw"]
+
+[ext_resource type="Script" uid="uid://dfgjnnyoj6ays" path="res://Scenes/job_controller.gd" id="1_c8yas"]
+
+[node name="JobController" type="Node"]
+script = ExtResource("1_c8yas")
+
+[node name="JobTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="JobTimer" to="." method="_on_job_timer_timeout"]

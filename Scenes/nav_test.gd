@@ -1,20 +1,19 @@
 extends Node3D
 
-@export var pickup:Node3D
-@export var destination:Node3D
+@export var player:PlayerVehicle
 
 var path : PackedVector3Array = PackedVector3Array()
 var nodes : Array[Node3D] = []
 
-func get_navigation_path() -> PackedVector3Array:
+func get_navigation_path(start:Vector3, end:Vector3) -> PackedVector3Array:
 	if not is_inside_tree():
 		return PackedVector3Array()
 	
 	var default_map_rid: RID = get_world_3d().get_navigation_map()
 	return NavigationServer3D.map_get_path(
 		default_map_rid,
-		pickup.position,
-		destination.position,
+		start,
+		end,
 		true
 	)
 	
@@ -22,8 +21,17 @@ func gen_and_draw_path():
 	for node in nodes:
 		node.queue_free()
 	nodes.clear()
-	if pickup != null and destination != null:
-		path = get_navigation_path()
+	if player != null:
+		var start : Vector3 = player.global_position
+		var end : Vector3 = Vector3(0,0,0)
+		if player.passenger.pickup != null and player.passenger.pickup.visible:
+			end = player.passenger.pickup.global_position
+		elif player.passenger.destination != null and player.passenger.destination.visible:
+			end = player.passenger.destination.global_position
+		else:
+			print("No pickup or dest!")
+			return
+		path = get_navigation_path(start,end)
 		print("Path length: ",path.size())
 		var node_scene : Resource = load("res://Scenes/nav_path_node.tscn")
 		for node in path:

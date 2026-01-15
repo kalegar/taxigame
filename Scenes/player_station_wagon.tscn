@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://borupx16dtei6"]
+[gd_scene load_steps=45 format=4 uid="uid://borupx16dtei6"]
 
 [ext_resource type="Script" uid="uid://d32qrx7srok0r" path="res://Scenes/player_station_wagon.gd" id="1_45r7y"]
 [ext_resource type="Script" uid="uid://0vropr3tdmey" path="res://Scenes/rearview_mirror.gd" id="3_e56ke"]
@@ -998,6 +998,46 @@ albedo_texture = SubResource("ViewportTexture_enq0j")
 [sub_resource type="QuadMesh" id="QuadMesh_wevtk"]
 size = Vector2(0.19, 0.06)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmimf"]
+resource_name = "Arrow"
+cull_mode = 2
+albedo_color = Color(0.33529034, 0.9063318, 0.31703794, 1)
+roughness = 0.4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8syug"]
+_surfaces = [{
+"aabb": AABB(-2, -1, -2.8445113, 4, 2, 9.689022),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAFAAMAAQADAAQAAQAEAAIAAwAFAAcAAwAHAAQABgAFAAAAAAACAAYABgAHAAUADgAEAAcADAAHAAYABwAMAA4ADAAGAAoACgAPAAwADAAPAA4AEAAKAAYADwAKABAABgARABAAEQAGAAIACQAPABAAEAARAAkACQASAA8AEgAOAA8AEQASAAkAEgANAA4ACAARAAIACAACAAQAEQATABIACAATABEAEwANABIACAAEAAsACwATAAgABAAOABQACwAEABQAFAAOAA0AEwALABQAEwAUAA0A"),
+"lods": [0.0018289034, PackedByteArray("AAABAAIAAAADAAEAAQADAAQAAQAEAAIAAAAFAAMABgAFAAAAAAACAAYAAwAFAAcAAwAHAAQABgAHAAUACAACAAQACQAGAAIACAAJAAIABgAJAAoACAAEAAsADAAGAAoADAAHAAYACQAMAAoADQAEAAcABAANAAsABwAMAA0ACAALAA0ACQANAAwACAANAAkA")],
+"name": "Arrow",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("/z///wAAAAD/v///AAAAAP+///9PlgAA/78AAAAAAAD/vwAAT5YAAP8/AAAAAAAA/z///0+WAAD/PwAAT5YAAP////9PlgAA/3//////AAAAAP//T5YAAP//AABPlgAAAAAAAE+WAAD/fwAA//8AAP8/AAAnywAA/z//fyfLAAD/P///J8sAAP+///8nywAA/3//f///AAD/v/9/J8sAAP+/AAAnywAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_axul4"]
+resource_name = "arrow_Cube"
+_surfaces = [{
+"aabb": AABB(-2, -1, -2.8445113, 4, 2, 9.689022),
+"attribute_data": PackedByteArray("6TMEAM5nIwnbTcCc9hmhk6oh+v8EABGPzmdQoeJzEK/viBCv74jw6uJz8Oq6yAQAn/wjCaziwJzHrqGTe7b6/9WUEY+f/FCh4nMBAO+IAQDviOE74nPhO+Jz8OrviPDq74j9/+Jz/f/viIqk74gQr+JzEK/ic4qk4nNoRuJz4TvviOE774hoRuJzaEbviGhG74h5deJzeXXic3l174iKpOJziqTviHl1vESl0NcQhseN2aXQqKWGx2l+eXVpfgGN4nMBje+IAY1pfvBd4nPwXe+I8F1pfgGN74gBjeJzAY1pfvBd74jwXWl+eXXic/Bd"),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAKgADAAIABgAqAAIAAwAqACsAKwAqAAQAKwAFAAMABwAIAAkABwAJAAoACwAMAA0ACwANAA4ALAAOAA0ADQARACwADgAsAC0ALQAsAA8AEAAOAC0AEgATABQAEgAUABUAFgAXABgAFgAYABkAJgAuAC8AJgAvADAALgAxAC8ALgApADEAGgAbABwAGgAcAB0AHgAfACAAHgAgACEAIgAyADMAIwAyACIAMgAjADQAJwA1ADYAKAA1ACcANQAoADcAOAA5ACQAOAAkADoAOwA4ADoAOwA6ACUA"),
+"lods": [0.0018289034, PackedByteArray("AAABAAIAAAACAAMABAADAAIAAwAEAAUABgAEAAIABwAIAAkABwAJAAoACwAMAA0ACwANAA4ADwAOAA0ADgAPABAADQARAA8AEgATABQAEgAUABUAFgAXABgAFgAYABkAGgAbABwAGgAcAB0AHgAfACAAHgAgACEAIgAjACQAIgAkACUAJgAnACgAJgApACcA")],
+"material": SubResource("StandardMaterial3D_xmimf"),
+"name": "Arrow",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("/z///wAATsD/v///AABOwP+///9Plk7A/z///0+WTsD/f/////9OwAAA//9Plk7A/////0+WTsD/P///T5ZU1f8/AABPllTV/z8AAAAAVNX/P///AABU1f+/AAAAAPz6/z8AAAAA/Pr/PwAAT5b8+v+/AABPlvz6/38AAP///Pr//wAAT5b8+gAAAABPlvz6/7///wAAVNX/vwAAAABU1f+/AABPllTV/7///0+WVNX/P///AAD///8/AAAAAP///78AAAAA////v///AAD//wAAAABPlv///z8AAE+W////P///T5b//wAA//9Plv///////0+W////v///T5b///+/AABPlv////8AAE+W////////T5Zoy///AABPlmjL/38AAP//aMv/f/////9oy/9//////2jLAAAAAE+WaMsAAP//T5Zoy/9/AAD//2jL/7///yfLTsD/P///J8tOwP8/AAAny/z6/78AACfL/Pr/f/9///9oy/8//38ny2jL/z///yfLaMv/PwAAJ8toy/+//38ny2jL/7///yfLaMv/vwAAJ8toy/8//38ny2jL/z8AACfLaMv/P///J8toy/+//38ny2jL/78AACfLaMv/f/9///9oy/+///8ny2jLffb8bH32/Gx99vxsffb8bH32/Gx99vxsffb8bFRVqapUVaqqVFWpqlRVqaqmeqxCpnqsQqZ6rEKmeqxCpnqsQqZ6rEKmeqxCqqpVVaqqVFWqqlVVqqpVVf8//7//v/8//z//v/8//7//v/8//z//v/+//z//v/8//7//P/+//z//v/8//z//v2Cjnlxgo55cYKOeXGCjnlyeXGCjnlxgo55cYKOeXGCjffb8bH32/GymeqxCpnqsQp5cYKOeXGCjnlxgo55cYKNgo55cYKOeXGCjnlyeXGCjnlxgo55cYKNgo55cYKOeXGCjnlxgo55c")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8syug")
+
 [node name="PlayerStationWagon" type="VehicleBody3D"]
 mass = 280.0
 center_of_mass_mode = 1
@@ -1143,10 +1183,20 @@ layers = 524288
 light_energy = 0.1
 omni_range = 2.0
 
-[node name="Passenger" parent="." instance=ExtResource("3_wevtk")]
+[node name="Passenger" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_wevtk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36577106, 0.78908896, -0.79837906)
+player = NodePath("..")
+
+[node name="NavTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.018943787, 1.4402893, 1.5775425)
+mesh = SubResource("ArrayMesh_axul4")
+skeleton = NodePath("")
 
 [connection signal="dropoff_timer_started" from="Passenger" to="." method="_on_passenger_dropoff_timer_started"]
 [connection signal="passenger_dropped_off" from="Passenger" to="." method="_on_passenger_passenger_dropped_off"]
 [connection signal="passenger_picked_up" from="Passenger" to="." method="_on_passenger_passenger_picked_up"]
 [connection signal="pickup_timer_started" from="Passenger" to="." method="_on_passenger_pickup_timer_started"]
+[connection signal="timeout" from="NavTimer" to="." method="_on_nav_timer_timeout"]

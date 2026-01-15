@@ -7,13 +7,23 @@ signal passenger_picked_up(success:bool)
 signal passenger_dropped_off(success:bool)
 
 @export var taxi_job:TaxiJob
-@export var pickup:TaxiPickup
-@export var destination:TaxiDestination
+@export var pickup:TaxiLocation
+@export var destination:TaxiLocation
 @export var passenger_scene:PackedScene
+@export var player:PlayerVehicle:
+	set(val):
+		if player != null:
+			player.door_open_close.disconnect(_on_player_door_toggle)
+		player = val
+		player.door_open_close.connect(_on_player_door_toggle)
 @onready var timer_pickup:Timer = get_node("TimerPickup")
 @onready var timer_dropoff:Timer = get_node("TimerDropoff")
 var scene:Node
 var picked_up:bool = false
+
+func _on_player_door_toggle(index:int,open:bool) -> void:
+	if index == 1:
+		pass
 
 func _on_pickup_area_entered(_body:Node3D) -> void:
 	if picked_up:
@@ -36,14 +46,18 @@ func apply_job(job:TaxiJob) -> void:
 	print("Scene: ",scene.name)
 	
 	var pickups = get_tree().get_nodes_in_group("pickups")
-	var destinations = get_tree().get_nodes_in_group("destinations")
+	var destinations = get_tree().get_nodes_in_group("dropoffs")
 	var dist:float = INF
 	var tries_remaining:int = 32
 	while tries_remaining > 0 and (dist < job.distance_min or dist > job.distance_max):
-		pickup = (pickups.pick_random() as TaxiPickup)
-		destination = (destinations.pick_random() as TaxiDestination)
-		dist = pickup.global_position.distance_to(destination.global_position) # TODO: Generate navmesh path and test that length rather than point to point distance?
 		tries_remaining -= 1
+		pickup = (pickups.pick_random() as TaxiLocation)
+		pickup.location_type = TaxiLocation.LocationType.PICKUP
+		destination = (destinations.pick_random() as TaxiLocation)
+		destination.location_type = TaxiLocation.LocationType.DROPOFF
+		if pickup == destination:
+			continue
+		dist = pickup.global_position.distance_to(destination.global_position) # TODO: Generate navmesh path and test that length rather than point to point distance?
 	
 	if dist < job.distance_min or dist > job.distance_max:
 		print("Failed to find pickup and destination in range!", dist, " ", job.distance_min, " ", job.distance_max)
