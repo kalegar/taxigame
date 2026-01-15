@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=370 format=4 uid="uid://caup35a3kd83d"]
+[gd_resource type="MeshLibrary" load_steps=373 format=4 uid="uid://caup35a3kd83d"]
 
 [ext_resource type="Texture2D" uid="uid://cqi0sl0ryh1u4" path="res://Assets/Kenney/Roads/Textures/colormap.png" id="1_60u21"]
 
@@ -2005,6 +2005,9 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_vmpky"]
 image = SubResource("Image_v50nr")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ugpdq"]
+points = PackedVector3Array(0.5, 0.02, 0.49987185, -0.5, 0.02, 0.49987185, 0.5, -9.327885e-14, 0.49987185, 0.5, 0.02, -0.50019574, -0.5, -9.327885e-14, 0.49987185, -0.5, 0.02, -0.80999994, 0.5, -9.327885e-14, -0.50019574, 0.3303641, 0.02, -0.6599706, -0.5, -9.327885e-14, -0.80999994, 0, 0.02, -0.80999994, 0.3303641, -9.327885e-14, -0.6599706, 0.30090058, 0.02, -0.68702716, 0, -9.327885e-14, -0.80999994, 0.015368044, 0.02, -0.8089741, 0.30090058, -9.327885e-14, -0.68702716, 0.2697729, 0.02, -0.7121603, 0.015368044, -9.327885e-14, -0.8089741, 0.047376692, 0.02, -0.8064095, 0.2697729, -9.327885e-14, -0.7121603, 0.23698121, 0.02, -0.7351135, 0.047376692, -9.327885e-14, -0.8064095, 0.08819497, 0.02, -0.7991004, 0.23698121, -9.327885e-14, -0.7351135, 0.2023297, 0.02, -0.7555021, 0.08819497, -9.327885e-14, -0.7991004, 0.12783867, 0.02, -0.7879443, 0.2023297, -9.327885e-14, -0.7555021, 0.1659162, 0.02, -0.7733261, 0.12783867, -9.327885e-14, -0.7879443, 0.1659162, -9.327885e-14, -0.7733261)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yldrm"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
@@ -2109,6 +2112,9 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_gt0s8"]
 image = SubResource("Image_irkle")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x5ts5"]
+points = PackedVector3Array(0.5, 0.02, 0.49987185, -0.5, 0.02, 0.49987185, 0.5, -9.328167e-14, 0.49987185, 0.5, 0.02, -0.80999994, -0.5, -9.328167e-14, 0.49987185, -0.5, 0.02, -0.50019574, 0.5, -9.328167e-14, -0.80999994, -9.787083e-05, 0.02, -0.80999994, -0.5, -9.328167e-14, -0.50019574, -0.33046204, 0.02, -0.6599706, -9.787083e-05, -9.328167e-14, -0.80999994, -0.015465945, 0.02, -0.8089741, -0.33046204, -9.328167e-14, -0.6599706, -0.30099845, 0.02, -0.68702716, -0.015465945, -9.328167e-14, -0.8089741, -0.047474563, 0.02, -0.8064095, -0.30099845, -9.328167e-14, -0.68702716, -0.2698708, 0.02, -0.7121603, -0.047474563, -9.328167e-14, -0.8064095, -0.08829287, 0.02, -0.7991004, -0.2698708, -9.328167e-14, -0.7121603, -0.23707908, 0.02, -0.7351135, -0.08829287, -9.328167e-14, -0.7991004, -0.12793657, 0.02, -0.7879443, -0.23707908, -9.328167e-14, -0.7351135, -0.20242757, 0.02, -0.7555021, -0.12793657, -9.328167e-14, -0.7879443, -0.1660141, 0.02, -0.7733261, -0.20242757, -9.328167e-14, -0.7555021, -0.1660141, -9.328167e-14, -0.7733261)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wpc5"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
@@ -2158,6 +2164,9 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_toxlj"]
 image = SubResource("Image_2207n")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3uo8f"]
+points = PackedVector3Array(0.5, 0.02, 0.49987185, -0.5, 0.02, 0.49987185, 0.5, -2.6507684e-16, 0.49987185, 0.5, 0.02, -0.80999994, -0.5, -2.6507684e-16, 0.49987185, -0.5, 0.02, -0.80999994, 0.5, -2.6507684e-16, -0.80999994, -0.5, -2.6507684e-16, -0.80999994)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtmt6"]
 resource_name = "colormap"
@@ -4043,7 +4052,7 @@ item/43/name = "road-side-entry"
 item/43/mesh = SubResource("ArrayMesh_x74nd")
 item/43/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/43/mesh_cast_shadow = 1
-item/43/shapes = []
+item/43/shapes = [SubResource("ConvexPolygonShape3D_ugpdq"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/43/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/43/navigation_layers = 1
 item/43/preview = SubResource("ImageTexture_vmpky")
@@ -4059,7 +4068,7 @@ item/45/name = "road-side-exit"
 item/45/mesh = SubResource("ArrayMesh_2qvq8")
 item/45/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/45/mesh_cast_shadow = 1
-item/45/shapes = []
+item/45/shapes = [SubResource("ConvexPolygonShape3D_x5ts5"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/45/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/45/navigation_layers = 1
 item/45/preview = SubResource("ImageTexture_gt0s8")
@@ -4067,7 +4076,7 @@ item/46/name = "road-side"
 item/46/mesh = SubResource("ArrayMesh_101n2")
 item/46/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/46/mesh_cast_shadow = 1
-item/46/shapes = []
+item/46/shapes = [SubResource("ConvexPolygonShape3D_3uo8f"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/46/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/46/navigation_layers = 1
 item/46/preview = SubResource("ImageTexture_toxlj")
