@@ -78,12 +78,12 @@ func _physics_process(_delta: float) -> void:
 		apply_central_force(Vector3(0,5000,0))
 	
 func _process(delta: float) -> void:
-	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.0)
+	steering = move_toward(steering, Input.get_axis("action_steer_right", "action_steer_left") * MAX_STEER, delta * 2.0)
 	
 	var RPM_left = abs(wheel_rear_left.get_rpm())
 	var RPM_right = abs(wheel_rear_right.get_rpm())
 	var RPM = (RPM_left + RPM_right) / 2.0
-	var torque = Input.get_axis("ui_down", "ui_up") * (1.0 - RPM / MAX_RPM) * MAX_TORQUE
+	var torque = Input.get_axis("action_decelerate", "action_accelerate") * (1.0 - RPM / MAX_RPM) * MAX_TORQUE
 	engine_force = torque
 	
 	brake = float(Input.is_action_pressed("action_brake")) * BRAKE_POWER
