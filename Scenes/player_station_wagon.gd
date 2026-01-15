@@ -28,9 +28,12 @@ var current_job : TaxiJob:
 		if current_job != null:
 			passenger.apply_job(current_job)
 var passenger : Passenger
-const MAX_STEER =  0.3
-const ENGINE_POWER = 200
-const BRAKE_POWER = 5.0
+
+const MAX_STEER =  0.32
+const MAX_RPM = 675
+const MAX_TORQUE = 1500
+const BRAKE_POWER = 35.0
+const RPM_MAX_ANGLE = deg_to_rad(180)
 
 func _ready():
 	all_jobs.load_all_into(_all_jobs)
@@ -75,12 +78,19 @@ func _physics_process(_delta: float) -> void:
 		apply_central_force(Vector3(0,5000,0))
 	
 func _process(delta: float) -> void:
-	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
-	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
+	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.0)
+	
+	var RPM_left = abs(wheel_rear_left.get_rpm())
+	var RPM_right = abs(wheel_rear_right.get_rpm())
+	var RPM = (RPM_left + RPM_right) / 2.0
+	var torque = Input.get_axis("ui_down", "ui_up") * (1.0 - RPM / MAX_RPM) * MAX_TORQUE
+	engine_force = torque
+	
 	brake = float(Input.is_action_pressed("action_brake")) * BRAKE_POWER
 	spedometer.basis = spedometer_zero_basis.rotated(Vector3(0,0,1),linear_velocity.length()*0.1)
 	steering_wheel.basis = steering_wheel_zero_basis.rotated(Vector3(0,-.2,.8).normalized(),-steering*2.5)
-	rpm_angle = move_toward(rpm_angle, engine_force*.02, delta*3)
+	var angle_target = engine_force*.02 / RPM_MAX_ANGLE
+	rpm_angle = move_toward(rpm_angle, angle_target, delta*3)
 	rpm_meter.basis = rpm_zero_basis.rotated(Vector3(0,0,1),abs(rpm_angle))
 	
 	if Input.is_action_pressed("ui_cancel"):
