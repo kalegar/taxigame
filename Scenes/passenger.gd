@@ -42,6 +42,7 @@ func apply_job(job:TaxiJob) -> void:
 	if scene != null:
 		scene.queue_free()
 	scene = passenger_scene.instantiate()
+	scene.visible = false
 	add_child(scene)
 	print("Scene: ",scene.name)
 	

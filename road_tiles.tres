@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=373 format=4 uid="uid://caup35a3kd83d"]
+[gd_resource type="MeshLibrary" load_steps=374 format=4 uid="uid://caup35a3kd83d"]
 
 [ext_resource type="Texture2D" uid="uid://cqi0sl0ryh1u4" path="res://Assets/Kenney/Roads/Textures/colormap.png" id="1_60u21"]
 
@@ -153,6 +153,9 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_gld2n"]
 image = SubResource("Image_fwk2p")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8yqst"]
+points = PackedVector3Array(0.025, 0.09996085, 0.02497676, -0.025, 0.09996085, 0.02497676, 0.025, 0, 0.02497676, 0.025, 0.6, -0.16251712, 0.012499997, 0.5937157, 0.006238997, 0.012499997, 0.57498044, 0.012492672, -0.025, 0, 0.02497676, -0.0125, 0.57498044, 0.012492672, -0.0125, 0.5937157, 0.006238997, -0.025, 0.6, -0.16251712, 0.025, 0, -0.0250061, 0.025, 0.6, -0.21249999, 0.012499997, 0.6, -0.012522012, -0.025, 0, -0.0250061, -0.0125, 0.6, -0.012522012, -0.025, 0.6, -0.21249999, 0.025, 0.57498044, -0.21249999, -0.025, 0.57498044, -0.21249999)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s1d7"]
 resource_name = "colormap"
@@ -3788,7 +3791,7 @@ item/10/name = "light-square"
 item/10/mesh = SubResource("ArrayMesh_vxm01")
 item/10/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/10/mesh_cast_shadow = 1
-item/10/shapes = []
+item/10/shapes = [SubResource("ConvexPolygonShape3D_8yqst"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/10/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/10/navigation_layers = 1
 item/10/preview = SubResource("ImageTexture_gld2n")

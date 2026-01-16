@@ -1188,6 +1188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36577106, 0.78908896, -0.7
 player = NodePath("..")
 
 [node name="NavTimer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [node name="Arrow" type="MeshInstance3D" parent="."]
@@ -1195,6 +1196,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.018943787, 1.4402893,
 mesh = SubResource("ArrayMesh_axul4")
 skeleton = NodePath("")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="dropoff_timer_started" from="Passenger" to="." method="_on_passenger_dropoff_timer_started"]
 [connection signal="passenger_dropped_off" from="Passenger" to="." method="_on_passenger_passenger_dropped_off"]
 [connection signal="passenger_picked_up" from="Passenger" to="." method="_on_passenger_passenger_picked_up"]

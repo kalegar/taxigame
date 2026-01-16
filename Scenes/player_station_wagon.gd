@@ -1,43 +1,53 @@
 class_name PlayerVehicle
 extends VehicleBody3D
 
+## Maximum steer amount in radians
+const MAX_STEER =  0.32
+const MAX_RPM = 675
+const MAX_TORQUE = 1500
+const BRAKE_POWER = 35.0
+## Maximum angle for RPM dial needle
+const RPM_MAX_ANGLE = deg_to_rad(180)
+## Minimum impulse value that results in a damaging collision to the player vehicle
+const MINIMUM_COLLISION_IMPULSE_SQUARED = 30
+
 signal door_open_close(index:int,open:bool)
 
-var cam_first_person
-var cam_3rd_person
-var cam_rearview
-var door_right : MeshInstance3D
-var door_left : MeshInstance3D
-var steering_wheel : MeshInstance3D
-var steering_wheel_zero_basis
-var spedometer : MeshInstance3D
-var spedometer_zero_basis
-var rpm_meter : MeshInstance3D
-var rpm_zero_basis
-var rpm_angle
+@onready var cam_first_person : Camera3D = get_node("CameraFirstPerson")
+@onready var cam_3rd_person : Camera3D = get_node("Camera3rdPerson")
+@onready var cam_rearview : Camera3D = get_node("CameraRearview")
+@onready var door_right : MeshInstance3D = get_node("Door Right")
+@onready var door_left : MeshInstance3D = get_node("Door Left")
+@onready var steering_wheel : MeshInstance3D = get_node("Steering Wheel")
+@onready var spedometer : MeshInstance3D = get_node("Spedometer Needle")
+@onready var rpm_meter : MeshInstance3D = get_node("RPM Needle")
+@onready var wheel_front_right : VehicleWheel3D = get_node("WheelFrontRight")
+@onready var wheel_front_left : VehicleWheel3D = get_node("WheelFrontLeft")
+@onready var wheel_rear_right : VehicleWheel3D = get_node("WheelRearRight")
+@onready var wheel_rear_left : VehicleWheel3D = get_node("WheelRearLeft")
+@onready var nav_arrow : MeshInstance3D = get_node("Arrow")
+@onready var passenger : Passenger = get_node("Passenger")
+
+var steering_wheel_zero_basis:Basis
+var spedometer_zero_basis:Basis
+var rpm_zero_basis:Basis
+var rpm_angle:float
 var door_positions_left : Array
 var door_positions_right : Array
 var door_position_indexes : Array
-var mirror:Mirror3D
-var wheel_front_right : VehicleWheel3D
-var wheel_front_left : VehicleWheel3D
-var wheel_rear_right : VehicleWheel3D
-var wheel_rear_left : VehicleWheel3D
-var nav_arrow : MeshInstance3D
+
 var current_job : TaxiJob:
 	set(val):
 		current_job = val
 		if current_job != null:
 			passenger.apply_job(current_job)
-var passenger : Passenger
+
 var path:PackedVector3Array = PackedVector3Array()
 var nodes:Array[Node3D]
 
-const MAX_STEER =  0.32
-const MAX_RPM = 675
-const MAX_TORQUE = 1500
-const BRAKE_POWER = 35.0
-const RPM_MAX_ANGLE = deg_to_rad(180)
+var last_linear_velocity:Vector3
+var last_angular_velocity:Vector3
+var last_global_position:Vector3
 
 func _ready():
 	cam_first_person = get_node("CameraFirstPerson")
@@ -48,7 +58,6 @@ func _ready():
 	steering_wheel = get_node("Steering Wheel")
 	spedometer = get_node("Spedometer Needle")
 	rpm_meter = get_node("RPM Needle")
-	mirror = get_node("Mirror3D")
 	passenger = get_node("Passenger")
 	wheel_front_right = get_node("WheelFrontRight")
 	wheel_front_left = get_node("WheelFrontLeft")
@@ -63,6 +72,8 @@ func _ready():
 	door_positions_right = [door_right.transform.basis, door_right.transform.basis.rotated(Vector3(0,1,0), .9)]
 	door_position_indexes = [0,0]
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	contact_monitor = true
+	max_contacts_reported = 5
 	
 func is_flipped() -> bool:
 	return transform.basis.y.dot(Vector3.UP) < 0
@@ -77,6 +88,9 @@ func is_stuck() -> bool:
 	return linear_velocity.length_squared() < 1 and not any_contacting
 	
 func _physics_process(_delta: float) -> void:
+	last_global_position = global_position;
+	last_linear_velocity = linear_velocity;
+	last_angular_velocity = angular_velocity;
 	if Input.is_action_pressed("action_unstuck"):
 		# TODO: Implement "tow truck" or similar that respawns you at a nearby point.
 		apply_central_force(Vector3(0,5000,0))
@@ -213,3 +227,24 @@ func _on_passenger_passenger_dropped_off(success: bool) -> void:
 
 func _on_nav_timer_timeout() -> void:
 	navigate_to_next_location()
+
+func _on_body_entered(body: Node) -> void:
+	var state : PhysicsDirectBodyState3D = PhysicsServer3D.body_get_direct_state(get_rid())
+	
+	for i in range(0,state.get_contact_count()):
+		var contact_pt : Vector3 = state.get_contact_collider_position(i)
+		
+		var current_pt_velocity = Utils.get_point_velocity(contact_pt, linear_velocity, angular_velocity, global_position)
+		
+		var last_pt_velocity = Utils.get_point_velocity(contact_pt, last_linear_velocity, last_angular_velocity, last_global_position)
+		
+		var impulse:Vector3 = current_pt_velocity - last_pt_velocity
+		
+		var imp = impulse.length_squared()
+		
+		if (imp < MINIMUM_COLLISION_IMPULSE_SQUARED):
+			continue;
+			
+		print(imp)
+		print("Damage collision with ", body.name, "! Dmg: ", sqrt(imp))
+		
