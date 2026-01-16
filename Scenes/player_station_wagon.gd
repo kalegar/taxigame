@@ -27,6 +27,9 @@ signal door_open_close(index:int,open:bool)
 @onready var wheel_rear_left : VehicleWheel3D = get_node("WheelRearLeft")
 @onready var nav_arrow : MeshInstance3D = get_node("Arrow")
 @onready var passenger : Passenger = get_node("Passenger")
+@onready var smoke_particles : GPUParticles3D = get_node("SmokeParticles")
+@onready var tail_light_left : OmniLight3D = get_node("TaillightLeft")
+@onready var tail_light_right : OmniLight3D = get_node("TaillightRight")
 
 var steering_wheel_zero_basis:Basis
 var spedometer_zero_basis:Basis
@@ -103,8 +106,22 @@ func _process(delta: float) -> void:
 	var RPM = (RPM_left + RPM_right) / 2.0
 	var torque = Input.get_axis("action_decelerate", "action_accelerate") * (1.0 - RPM / MAX_RPM) * MAX_TORQUE
 	engine_force = torque
+	if torque < 0:
+		tail_light_left.light_color = Color(1,1,1)
+	else:
+		tail_light_left.light_color = Color(1.526, 0.35, 0.327)
+	tail_light_right.light_color = tail_light_left.light_color
 	
 	brake = float(Input.is_action_pressed("action_brake")) * BRAKE_POWER
+	if brake > 0:
+		tail_light_left.omni_range = 1.7;
+		tail_light_left.light_energy = 1.2;
+	else:
+		tail_light_left.omni_range = 1;
+		tail_light_left.light_energy = 1;
+	tail_light_right.omni_range = tail_light_left.omni_range;
+	tail_light_right.light_energy = tail_light_left.light_energy;	
+	
 	spedometer.basis = spedometer_zero_basis.rotated(Vector3(0,0,1),linear_velocity.length()*0.1)
 	steering_wheel.basis = steering_wheel_zero_basis.rotated(Vector3(0,-.2,.8).normalized(),-steering*2.5)
 	var angle_target = engine_force*.02 / RPM_MAX_ANGLE
@@ -247,4 +264,5 @@ func _on_body_entered(body: Node) -> void:
 			
 		print(imp)
 		print("Damage collision with ", body.name, "! Dmg: ", sqrt(imp))
+		smoke_particles.emitting = true
 		

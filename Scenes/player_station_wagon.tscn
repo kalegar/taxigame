@@ -1,8 +1,9 @@
-[gd_scene load_steps=45 format=4 uid="uid://borupx16dtei6"]
+[gd_scene load_steps=46 format=4 uid="uid://borupx16dtei6"]
 
 [ext_resource type="Script" uid="uid://d32qrx7srok0r" path="res://Scenes/player_station_wagon.gd" id="1_45r7y"]
 [ext_resource type="Script" uid="uid://0vropr3tdmey" path="res://Scenes/rearview_mirror.gd" id="3_e56ke"]
 [ext_resource type="PackedScene" uid="uid://yeh4f80gk4l5" path="res://Scenes/passenger.tscn" id="3_wevtk"]
+[ext_resource type="PackedScene" uid="uid://ufr7ppoggslf" path="res://Scenes/smoke_particles.tscn" id="4_wevtk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rj6vf"]
 resource_name = "PaintMuscleWagon"
@@ -1195,6 +1196,46 @@ autostart = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.018943787, 1.4402893, 1.5775425)
 mesh = SubResource("ArrayMesh_axul4")
 skeleton = NodePath("")
+
+[node name="SmokeParticles" parent="." instance=ExtResource("4_wevtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23759657, 0.73000205, 2.4544127)
+emitting = false
+
+[node name="HeadlightLeft" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.495, 0.637, 2.326)
+light_color = Color(1.3945211, 1.3945211, 1.1198704, 1)
+light_energy = 1.2
+spot_range = 40.0
+spot_attenuation = 0.8
+spot_angle = 25.0
+
+[node name="HeadlightRight" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.49513054, 0.6370961, 2.326119)
+light_color = Color(1.3945211, 1.3945211, 1.1198704, 1)
+light_energy = 1.2
+spot_range = 40.0
+spot_attenuation = 0.8
+spot_angle = 25.0
+
+[node name="TaillightLeft" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8135903, 0.6713742, -2.6518178)
+light_color = Color(1.5257139, 0.34966573, 0.32656404, 1)
+distance_fade_enabled = true
+distance_fade_begin = 0.5
+distance_fade_shadow = 8.0
+distance_fade_length = 4.0
+omni_range = 1.0
+omni_attenuation = 0.8
+
+[node name="TaillightRight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.814, 0.67184156, -2.652)
+light_color = Color(1.5257139, 0.34966573, 0.32656404, 1)
+distance_fade_enabled = true
+distance_fade_begin = 0.5
+distance_fade_shadow = 8.0
+distance_fade_length = 4.0
+omni_range = 1.0
+omni_attenuation = 0.8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="dropoff_timer_started" from="Passenger" to="." method="_on_passenger_dropoff_timer_started"]
