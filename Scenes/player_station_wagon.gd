@@ -13,6 +13,8 @@ const MINIMUM_COLLISION_IMPULSE_SQUARED = 30
 
 signal door_open_close(index:int,open:bool)
 
+@export var phone_viewport_path : NodePath
+
 @onready var cam_first_person : Camera3D = get_node("CameraFirstPerson")
 @onready var cam_3rd_person : Camera3D = get_node("Camera3rdPerson")
 @onready var cam_rearview : Camera3D = get_node("CameraRearview")
@@ -30,6 +32,9 @@ signal door_open_close(index:int,open:bool)
 @onready var smoke_particles : GPUParticles3D = get_node("SmokeParticles")
 @onready var tail_light_left : OmniLight3D = get_node("TaillightLeft")
 @onready var tail_light_right : OmniLight3D = get_node("TaillightRight")
+@onready var phone : MeshInstance3D = get_node("cell_phone/CellPhone")
+@onready var phone_viewport_node : Node3D = get_node("PhoneViewport")
+@onready var path_drawer : PathDrawer = get_node("PathDrawer")
 
 var steering_wheel_zero_basis:Basis
 var spedometer_zero_basis:Basis
@@ -77,6 +82,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	contact_monitor = true
 	max_contacts_reported = 5
+	#if phone_viewport_path != null:
+		#var phone_mat : StandardMaterial3D = phone.mesh.surface_get_material(1)
+		#var vp_tex : ViewportTexture = phone_mat.albedo_texture
+		#vp_tex.viewport_path = phone_viewport_path
 	
 func is_flipped() -> bool:
 	return transform.basis.y.dot(Vector3.UP) < 0
@@ -226,6 +235,9 @@ func navigate_to_next_location() -> void:
 		print("No pickup or dest!")
 		return
 	path = get_navigation_path(start,end)
+	if path.size() > 1 and path[0].distance_squared_to(global_position) > 16:
+		path.insert(0,global_position)
+	path_drawer.path = path
 
 func _on_passenger_dropoff_timer_started() -> void:
 	open_door(1)

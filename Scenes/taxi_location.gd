@@ -25,13 +25,15 @@ var location_type:LocationType = LocationType.PICKUP:
 			LocationType.PICKUP:
 				if pickup_material == null:
 					pickup_material = mesh_instance.material_override.duplicate()
-					pickup_material.albedo_color = Color(0.0, 0.827, 0.976, 0.745)
+					pickup_material.albedo_color = Color(0.0, 0.848, 1.657, 0.745)
+					pickup_material.emission = Color(0.0, 0.848, 1.657)
 				mesh_instance.material_override = pickup_material
 				print(name, " loc type set to pickup")
 			LocationType.DROPOFF:
 				if dropoff_material == null:
 					dropoff_material = mesh_instance.material_override.duplicate()
-					dropoff_material.albedo_color = Color(0.749, 0.785, 0.0, 0.745)
+					dropoff_material.albedo_color = Color(0.942, 1.5, 0.0, 0.745)
+					dropoff_material.emission = Color(0.942, 1.5, 0.0)
 				mesh_instance.material_override = dropoff_material
 				print(name, " loc type set to dropoff")
 

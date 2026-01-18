@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7qnii43dyrlb"]
+
+[ext_resource type="Script" uid="uid://c43mlp7t3lk8b" path="res://Scenes/path_drawer.gd" id="1_j2s3i"]
+
+[node name="PathDrawer" type="Node3D"]
+script = ExtResource("1_j2s3i")

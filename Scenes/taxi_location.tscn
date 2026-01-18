@@ -4,7 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjb80"]
 transparency = 1
-albedo_color = Color(0.54901963, 0.62352943, 1, 0.7607843)
+albedo_color = Color(0.703082, 0.7972387, 1.269618, 0.215)
+emission_enabled = true
+emission = Color(0, 1.219, 1.434, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l1q8j"]
 size = Vector3(2, 2, 4)

@@ -31,6 +31,8 @@ sky_material = SubResource("ShaderMaterial_5ukr8")
 [sub_resource type="Environment" id="Environment_yp4wr"]
 background_mode = 2
 sky = SubResource("Sky_o06y3")
+ambient_light_sky_contribution = 0.5
+glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a02cp"]
 
@@ -143,7 +145,9 @@ compositor = SubResource("Compositor_go701")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.88727665, -0.35941592, 0.28906813, 0.24998656, 0.9014225, 0.35347486, -0.38761693, -0.2413669, 0.8896602, 0, 40.6, 0)
+light_energy = 0.2
 shadow_enabled = true
+shadow_caster_mask = 4294705151
 
 [node name="GridMap_City" type="GridMap" parent="."]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -1.5, 0)
