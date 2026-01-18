@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	camera.basis = orig_basis
 	camera.global_position = global_position
-	camera.global_position.y += 10
+	camera.global_position.y += 20
 	camera.rotation = rotation

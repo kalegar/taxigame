@@ -35,6 +35,8 @@ signal door_open_close(index:int,open:bool)
 @onready var phone : MeshInstance3D = get_node("cell_phone/CellPhone")
 @onready var phone_viewport_node : Node3D = get_node("PhoneViewport")
 @onready var path_drawer : PathDrawer = get_node("PathDrawer")
+@onready var map_sphere : MeshInstance3D = get_node("MapSphere")
+@onready var phone_cam : Camera3D = get_node("PhoneViewport/PhoneSubViewport/PhoneCamera")
 
 var steering_wheel_zero_basis:Basis
 var spedometer_zero_basis:Basis
@@ -82,6 +84,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	contact_monitor = true
 	max_contacts_reported = 5
+	map_sphere.visible = true
 	#if phone_viewport_path != null:
 		#var phone_mat : StandardMaterial3D = phone.mesh.surface_get_material(1)
 		#var vp_tex : ViewportTexture = phone_mat.albedo_texture
@@ -119,15 +122,21 @@ func _process(delta: float) -> void:
 		tail_light_left.light_color = Color(1,1,1)
 	else:
 		tail_light_left.light_color = Color(1.526, 0.35, 0.327)
+		
 	tail_light_right.light_color = tail_light_left.light_color
 	
 	brake = float(Input.is_action_pressed("action_brake")) * BRAKE_POWER
+	
 	if brake > 0:
 		tail_light_left.omni_range = 1.7;
 		tail_light_left.light_energy = 1.2;
 	else:
 		tail_light_left.omni_range = 1;
 		tail_light_left.light_energy = 1;
+	
+	if abs(torque) < 1 and brake == 0:
+		brake = BRAKE_POWER*.2
+
 	tail_light_right.omni_range = tail_light_left.omni_range;
 	tail_light_right.light_energy = tail_light_left.light_energy;	
 	
@@ -155,6 +164,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action_open_doors"):
 		toggle_door(1)
 		
+	if Input.is_action_just_pressed("action_phone_zoom_in"):
+		phone_cam.size -= 50
+		if phone_cam.size < 50:
+			phone_cam.size = 50
+	if Input.is_action_just_pressed("action_phone_zoom_out"):
+		phone_cam.size += 50
+		
 	if path != null and path.size() > 1:
 		var dist = INF
 		var closest = path[path.size()-1]
@@ -167,11 +183,14 @@ func _process(delta: float) -> void:
 				dist = d
 				closest = node
 				
+		nav_arrow.visible = true
 		closest.y += 1
 		var old = nav_arrow.rotation
 		nav_arrow.look_at(closest, Vector3.UP, true)
 		var new = nav_arrow.rotation
 		nav_arrow.rotation = lerp(old, new, .1)
+	else:
+		nav_arrow.visible = false
 		
 		#var node_scene : Resource = load("res://Scenes/nav_path_node.tscn")
 		#for node in nodes:

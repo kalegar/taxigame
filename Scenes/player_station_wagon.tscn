@@ -1004,8 +1004,9 @@ size = Vector2(0.19, 0.06)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmimf"]
 resource_name = "Arrow"
 cull_mode = 2
-albedo_color = Color(0.33529034, 0.9063318, 0.31703794, 1)
+albedo_color = Color(0.5288975, 1.3828466, 0.5026924, 1)
 roughness = 0.4
+disable_receive_shadows = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8syug"]
 _surfaces = [{
@@ -1115,12 +1116,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kuoko")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8j0l"]
-albedo_color = Color(0, 0, 1.4687854, 1)
+shading_mode = 0
+albedo_color = Color(0, 0.17772199, 1.4687854, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_um2bt"]
 material = SubResource("StandardMaterial3D_c8j0l")
-radius = 3.0
-height = 6.0
+radius = 4.0
+height = 8.0
 
 [node name="PlayerStationWagon" type="VehicleBody3D"]
 mass = 280.0
@@ -1346,6 +1348,7 @@ projection = 1
 size = 250.0
 
 [node name="MapSphere" type="MeshInstance3D" parent="."]
+visible = false
 layers = 262144
 mesh = SubResource("SphereMesh_um2bt")
 
